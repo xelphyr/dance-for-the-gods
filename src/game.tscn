@@ -1,7 +1,21 @@
 [gd_scene format=3 uid="uid://chr4u7i1pf571"]
 
 [ext_resource type="PackedScene" uid="uid://cfhrod6ygqols" path="res://src/curses/ray/ray.tscn" id="1_7uq6d"]
+[ext_resource type="PackedScene" uid="uid://cq8yj275gs153" path="res://src/player.tscn" id="2_3msxb"]
+[ext_resource type="PackedScene" uid="uid://bk2pnvtslcg8l" path="res://src/trail.tscn" id="3_xq6wo"]
+
+[sub_resource type="Curve" id="Curve_xq6wo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Node2D" type="Node2D" unique_id=164512882]
 
 [node name="Ray" parent="." unique_id=535035794 instance=ExtResource("1_7uq6d")]
+
+[node name="Trail" parent="." unique_id=1446834403 node_paths=PackedStringArray("follow") instance=ExtResource("3_xq6wo")]
+width_curve = SubResource("Curve_xq6wo")
+follow = NodePath("../Player")
+seconds_per_point = 0.01
+enabled = true
+
+[node name="Player" parent="." unique_id=1905215925 instance=ExtResource("2_3msxb")]

@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 @onready var collide : CollisionShape2D = $Collision
 @onready var sprite : Sprite2D = $Sprite
@@ -31,3 +31,8 @@ func _on_delay_timeout() -> void:
 	collide.disabled = false
 	await get_tree().create_timer(duration).timeout
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		print("ow")

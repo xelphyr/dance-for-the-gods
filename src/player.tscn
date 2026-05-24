@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://cq8yj275gs153"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1905215925]
+[ext_resource type="Script" uid="uid://c5wmh07vi11wu" path="res://src/player.gd" id="1_gmfve"]
+[ext_resource type="Texture2D" uid="uid://k1j4xn4i7sh" path="res://assets/fireball.png" id="1_lowyb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmfve"]
+radius = 19.104973
+
+[node name="Player" type="CharacterBody2D" unique_id=1905215925 groups=["Player"]]
+motion_mode = 1
+script = ExtResource("1_gmfve")
+speed = 600.0
+dash_factor = 8
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=293154831]
+shape = SubResource("CircleShape2D_gmfve")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=119039635]
+position = Vector2(-9.536743e-07, 9.536743e-07)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("1_lowyb")

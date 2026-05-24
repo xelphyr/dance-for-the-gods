@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bk2pnvtslcg8l"]
+
+[ext_resource type="Script" uid="uid://brnblqk7ql8ua" path="res://src/trail.gd" id="1_bgbah"]
+
+[node name="Trail" type="Line2D" unique_id=1446834403]
+script = ExtResource("1_bgbah")
+
+[node name="Timer" type="Timer" parent="." unique_id=795834711]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
