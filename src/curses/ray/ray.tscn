@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cfhrod6ygqols"]
+
+[ext_resource type="Script" uid="uid://ckf8h4nleg652" path="res://src/curses/ray/ray.gd" id="1_xnjxu"]
+[ext_resource type="PackedScene" uid="uid://bju6cqcqykd3t" path="res://src/curses/ray/ray_beam.tscn" id="2_h4euu"]
+
+[node name="Ray" type="Node2D" unique_id=535035794]
+script = ExtResource("1_xnjxu")
+ray_scene = ExtResource("2_h4euu")
+spawn_rate = 0.5
+ray_delay = 0.7
+ray_duration = 0.7
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=602841497]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

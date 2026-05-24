@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bju6cqcqykd3t"]
+
+[ext_resource type="Script" uid="uid://dq88ql5gk4e8i" path="res://src/curses/ray/ray_beam.gd" id="1_fkkt6"]
+[ext_resource type="Texture2D" uid="uid://beqw57knjkdfs" path="res://assets/lightbrick.png" id="2_ejtrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytqg7"]
+size = Vector2(4000, 20)
+
+[node name="RayBeam" type="StaticBody2D" unique_id=532932919]
+script = ExtResource("1_fkkt6")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=2047106440]
+shape = SubResource("RectangleShape2D_ytqg7")
+disabled = true
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=430927996]
+modulate = Color(1, 1, 0.7411765, 1)
+scale = Vector2(4000, 20)
+texture = ExtResource("2_ejtrg")
+
+[node name="DelayTimer" type="Timer" parent="." unique_id=125532087]
+one_shot = true
+
+[connection signal="timeout" from="DelayTimer" to="." method="_on_delay_timeout"]
